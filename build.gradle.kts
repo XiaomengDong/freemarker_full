@@ -29,6 +29,14 @@ plugins {
     signing
     id("biz.aQute.bnd.builder") version "7.0.0"
     id("eclipse")
+    id("jacoco")
+    id("org.sonarqube") version "8.0.1"
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
 }
 
 group = "org.freemarker"
