@@ -63,8 +63,8 @@ freemarkerRoot {
     configureSourceSet("jython20")
     configureSourceSet("jython22")
     configureSourceSet("jython25") { enableTests() }
-    configureSourceSet("core9", "9") { enableTests() }
-    configureSourceSet("core16", "16") {
+    configureSourceSet("core9", "11") { enableTests() }
+    configureSourceSet("core16", "17") {
         enableTests();
         addDependencySourceSet("core9");
     }
