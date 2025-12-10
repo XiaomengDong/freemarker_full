@@ -103,7 +103,7 @@ open class JakartaSourceRootGeneratorTask @Inject constructor(
             override fun visitFile(fileDetails: FileVisitDetails) {
                 val relPath = fileDetails.relativePath
 
-                val newPackage = toNewPath(relPath.parent.segments.asList(), origToNewPackage)
+                val newPackage = toNewPath(relPath?.parent?.segments?.asList() ?: emptyList(), origToNewPackage)
 
                 val srcPath = fileDetails.file
                 var fileContent = srcPath.readText()

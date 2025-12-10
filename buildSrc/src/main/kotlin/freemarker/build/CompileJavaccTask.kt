@@ -120,8 +120,8 @@ open class CompileJavaccTask @Inject constructor(
         withJavaccRunner {
             sourceDirectory.asFileTree.visit(object : EmptyFileVisitor() {
                 override fun visitFile(fileDetails: FileVisitDetails) {
-                    val outputDir = fileDetails.relativePath.parent.getFile(destRoot)
-                    Files.createDirectories(outputDir.toPath())
+                    val outputDir = fileDetails.relativePath.parent?.getFile(destRoot)
+                    Files.createDirectories(outputDir?.toPath())
 
                     runJavacc(listOf(
                         "-OUTPUT_DIRECTORY=$outputDir",

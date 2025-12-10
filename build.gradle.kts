@@ -30,13 +30,7 @@ plugins {
     id("biz.aQute.bnd.builder") version "7.0.0"
     id("eclipse")
     id("jacoco")
-    id("org.sonarqube") version "8.0.1"
-}
-
-jacocoTestReport {
-    reports {
-        xml.required = true
-    }
+    id("org.sonarqube") version "7.2.0.6526"
 }
 
 group = "org.freemarker"
@@ -205,6 +199,12 @@ val osgiSourceSet = sourceSets
             enabled = false
         }
     }
+
+tasks.named<JacocoReport>("jacocoTestReport") {
+    reports {
+        xml.required = true
+    }
+}
 
 tasks.named<Jar>(JavaPlugin.JAR_TASK_NAME) {
     configure<aQute.bnd.gradle.BundleTaskExtension> {
